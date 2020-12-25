@@ -3061,7 +3061,8 @@ ask_retry:
     if(reply == NULL)
     {
         __redisClusterSetError(cc, c->err, c->errstr);
-        return NULL;
+		goto retry;
+        //return NULL;
     }
 
     error_type = cluster_reply_error_type(reply);
